@@ -1,0 +1,7 @@
+PyQt5>=5.15.9
+librosa>=0.10.0
+numpy>=1.24.0
+soundfile>=0.12.1
+numba>=0.57.0
+scipy>=1.10.0
+audioread>=3.0.0
