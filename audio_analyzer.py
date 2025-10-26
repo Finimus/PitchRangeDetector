@@ -5,7 +5,6 @@ Pitch detection and frequency analysis using librosa
 
 import numpy as np
 import librosa
-import librosa.display
 
 
 class AudioAnalyzer:
