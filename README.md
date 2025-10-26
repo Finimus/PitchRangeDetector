@@ -41,41 +41,6 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## 📦 Creare Executabil Windows (.exe)
-
-Pentru a crea un executabil standalone care poate rula fără Python instalat:
-
-### 1. Instalează PyInstaller
-
-```bash
-pip install pyinstaller
-```
-
-### 2. Creează Executabilul
-
-**Opțiunea A: Folosind fișierul spec (recomandat)**
-
-```bash
-pyinstaller PitchRangeDetector.spec
-```
-
-**Opțiunea B: Comandă directă**
-
-```bash
-pyinstaller --name="PitchRangeDetector" --windowed --onefile --icon=icon.ico main.py
-```
-
-**Opțiunea C: Pentru versiune cu fișiere separate (mai rapid la pornire)**
-
-```bash
-pyinstaller --name="PitchRangeDetector" --windowed --icon=icon.ico main.py
-```
-
-### 3. Găsește Executabilul
-
-După compilare, executabilul se va afla în:
-- `dist/PitchRangeDetector.exe` (pentru --onefile)
-- `dist/PitchRangeDetector/PitchRangeDetector.exe` (pentru versiune cu fișiere separate)
 
 ### Notă despre dimensiunea executabilului
 
