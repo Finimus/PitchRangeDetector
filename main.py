@@ -169,8 +169,30 @@ class PitchRangeDetectorApp(QMainWindow):
         
         main_layout.addStretch()
         
+        # About button
+        self.about_button = QPushButton("ℹ️ Despre")
+        self.about_button.setFont(QFont("Segoe UI", 10))
+        self.about_button.setMinimumHeight(35)
+        self.about_button.setStyleSheet("""
+            QPushButton {
+                background-color: #2d2d2d;
+                color: white;
+                border: 1px solid #3d3d3d;
+                border-radius: 5px;
+                padding: 8px;
+            }
+            QPushButton:hover {
+                background-color: #3d3d3d;
+            }
+            QPushButton:pressed {
+                background-color: #252525;
+            }
+        """)
+        self.about_button.clicked.connect(self.show_about)
+        main_layout.addWidget(self.about_button)
+
         # Footer
-        footer_label = QLabel("© 2025 Pitch Range Detector | Offline Analysis Tool")
+        footer_label = QLabel("© 2025 – Finimus | Pitch Range Detector 🎶")
         footer_label.setFont(QFont("Segoe UI", 8))
         footer_label.setAlignment(Qt.AlignCenter)
         footer_label.setStyleSheet("color: #666666;")
@@ -299,6 +321,64 @@ class PitchRangeDetectorApp(QMainWindow):
         self.median_freq_label.setText("Frecvența mediană: —")
         self.note_range_label.setText("Gama în note: —")
         self.confidence_label.setText("Nivel de încredere: —")
+
+    def show_about(self):
+        """Show About dialog with application information"""
+        about_text = """
+<div style='text-align: center;'>
+<h2>Pitch Range Detector 🎶</h2>
+<p style='font-size: 11pt;'><b>Versiune: 1.0</b></p>
+</div>
+
+<p style='font-size: 10pt;'>
+<b>Descoperă cu precizie gama ta vocală sau instrumentală!</b><br><br>
+Încarcă un fișier audio, apasă „Analizează” și vizualizează notele extreme,
+frecvențele și intervalul muzical.
+</p>
+
+<p style='font-size: 10pt;'>
+Aplicația funcționează complet <b>offline</b> și este creată special pentru
+cântăreți, profesori de muzică și ingineri de sunet care doresc o analiză
+rapidă și intuitivă.
+</p>
+
+<p style='font-size: 10pt;'>
+Dezvoltată cu pasiune în Python ❤️
+</p>
+
+<hr>
+
+<p style='font-size: 9pt;'>
+<b>Funcționalitate:</b><br>
+Tool offline pentru analiza de pitch și determinarea gamei vocale/instrumentale.
+</p>
+
+<p style='font-size: 9pt;'>
+<b>Tehnologii utilizate:</b><br>
+• Framework: PyQt5<br>
+• Analiză audio: Librosa<br>
+• Formate compatibile: WAV, MP3, FLAC, OGG
+</p>
+
+<hr>
+
+<p style='font-size: 9pt; text-align: center;'>
+<b>Open-source | Creat de Finimus</b><br>
+🌐 <a href='https://github.com/Finimus'>github.com/Finimus</a>
+</p>
+
+<p style='font-size: 8pt; text-align: center; color: #888888;'>
+© 2025 – Finimus
+</p>
+        """
+
+        msg_box = QMessageBox(self)
+        msg_box.setWindowTitle("Despre Pitch Range Detector")
+        msg_box.setTextFormat(Qt.RichText)
+        msg_box.setText(about_text)
+        msg_box.setIcon(QMessageBox.Information)
+        msg_box.setStandardButtons(QMessageBox.Ok)
+        msg_box.exec_()
 
 
 def main():
